@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Plans</title>
+  <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<header class="titleCard">
+  <h1>Enjoy Your Trip</h1>
+</header>
+
+<body>
+  <section class="map">
+    <h2>Map out your trip</h2>
+  </section>
+
+  <aside class="eventBox">
+    <h2>Here is your Itinerary</h2>
+    <ul class="eventList">
+      <li id="event"></li>
+    </ul>
+  </aside>
+
+  <section class="weather">
+<h2>Forecast for your Trip</h2>
+  </section>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
+  <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
