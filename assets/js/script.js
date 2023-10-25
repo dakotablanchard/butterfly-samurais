@@ -1,4 +1,4 @@
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 
 const AI_USER_STORY = "You are a travel planner.";
 
