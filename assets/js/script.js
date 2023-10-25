@@ -7,8 +7,13 @@ function initPlacesAutocomplete() {
 	);
 }
 
-function searchSubmission() {}
+function searchSubmission(event) {
+	event.preventDefault();
+}
 
-function init() {}
+function init() {
+	const searchForm = document.getElementById("search-form");
+	searchForm.addEventListener("submit", searchSubmission);
+}
 
 init();
