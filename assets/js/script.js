@@ -6,3 +6,9 @@ function initPlacesAutocomplete() {
 		}
 	);
 }
+
+function searchSubmission() {}
+
+function init() {}
+
+init();
