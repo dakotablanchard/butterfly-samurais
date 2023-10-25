@@ -6,9 +6,10 @@
 		<link rel="stylesheet" href="./assets/css/normalize.css" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-		<title>Document</title>
+		<title>Automated Trip Planner</title>
 	</head>
 	<body>
+		<h1>Automated Trip Planner</h1>
 		<form id="search-form">
 			<input type="text" placeholder="I want to..." id="activity-search-box" />
 			<input
@@ -17,6 +18,11 @@
 				id="places-search-box" />
 			<button>Search</button>
 		</form>
+
+		<div class="recent-searches">
+
+		</div>
+		
 		<script
 			async
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
