@@ -8,7 +8,14 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<input type="text" placeholder="Search Places..." id="places-search-box" />
+		<form id="search-form">
+			<input type="text" placeholder="I want to..." id="activity-search-box" />
+			<input
+				type="text"
+				placeholder="Search Places..."
+				id="places-search-box" />
+			<button>Search</button>
+		</form>
 		<script
 			async
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
