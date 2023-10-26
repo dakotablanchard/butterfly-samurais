@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 
 <head>
 	<meta charset="UTF-8" />
@@ -7,25 +8,45 @@
 	<link rel="stylesheet" href="./assets/css/normalize.css" />
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<title>Automated Trip Planner</title>
+  <title>Automated Trip Planner</title>
 </head>
 
-<body>
+=======
+	<body>
 		<h1>Automated Trip Planner</h1>
-	<form id="search-form">
-		<input type="text" placeholder="I want to..." id="activity-search-box" />
-		<input type="text" placeholder="Search Places..." id="places-search-box" />
-		<button>Search</button>
-	</form>
+		<form id="search-form">
+			<!-- Input for what they want to do -->
+			<input
+				type="text"
+				placeholder="I want to..."
+				id="activity-search-box"
+				required />
 
-		<div class="recent-searches">
+			<!-- Input for location -->
+			<input
+				type="text"
+				placeholder="Search Places..."
+				id="places-search-box"
+				required />
 
-		</div>
-		
-	<p id="test-response"></p>
-	<script async
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
-	<script src="./assets/js/script.js"></script>
-</body>
+			<!-- Input for OpenAI API key, (move to modal in future) -->
+			<input
+				type="text"
+				placeholder="OpenAI Key"
+				id="openai-key-box"
+				required />
 
+			<!-- Submit Button -->
+			<button>Search</button>
+		</form>
+
+		<div class="recent-searches"></div>
+
+		<p id="test-response"></p>
+		<!-- Import Google Places API -->
+		<script
+			async
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
+		<script src="./assets/js/script.js"></script>
+	</body>
 </html>
