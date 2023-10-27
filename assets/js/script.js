@@ -77,7 +77,8 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 	//get the input for what they want to do
-	let prompt = "Write me a travel itinerary for " + activityBox.value + " in " + locationBox.value;
+	// ADD TOTAL NUMBER OF DAYS CALCULATED FROM CALENDER INPUT FOR ITINERARY
+	let prompt = "Write me a travel itinerary for " + activityBox.value + " in the " + locationBox.value + " area";
 	//empty inputs
 	activityBox.value = "";
 	locationBox.value = "";
