@@ -63,6 +63,7 @@ function openAiCall(prompt) {
 		.then((response) => response.json())
 		.then((data) => {
 			//location of the response message from chatgpt
+			console.log(data);
 			return data.choices[0].message.content;
 		})
 		.catch((error) => {
@@ -76,7 +77,7 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 	//get the input for what they want to do
-	let prompt = activityBox.value;
+	let prompt = "Write me a travel itinerary for " + activityBox.value + " in " + locationBox.value;
 	//empty inputs
 	activityBox.value = "";
 	locationBox.value = "";
