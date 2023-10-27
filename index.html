@@ -12,34 +12,45 @@
 	<body>
 		<h1>Automated Trip Planner</h1>
 		<form id="search-form">
-			<!-- Input for what they want to do -->
-			<input
-				type="text"
-				placeholder="I want to..."
-				id="activity-search-box"
-				required />
 
-			<!-- Input for location -->
-			<input
-				type="text"
-				placeholder="Search Places..."
-				id="places-search-box"
-				required />
+				<!-- Input for what they want to do -->
+				<!-- Wrapped in div with location input -->
+			<div class="row">
+				<div class="input-field offset-s2 col s4">
+				  <input id="activity-search-box" type="text" required>
+				  <label>I want to...</label>
+				</div>
 
-			<!--  -->
-			<input 
-				type="text" 
-				class="datepicker">
+				<!-- Input for location -->
+				<div class="input-field col s4">
+					<input id="places-search-box" type="text" required>
+					<label>Enter a location...</label>
+				</div>
+			</div>
 
+			<!-- Datepicker Input -->
+			<div class="row">
+				<div class="input-field offset-s2 col s8">
+					<input type="text" class="datepicker" id="datepicker" required>
+					<label>Choose a date</label>
+				</div>
+			</div>
+			
 			<!-- Input for OpenAI API key, (move to modal in future) -->
-			<input
-				type="text"
-				placeholder="OpenAI Key"
-				id="openai-key-box"
-				required />
+			<div class="row">
+				<div class="input-field offset-s2 col s8">
+					<input id="openai-key-box" type="text" required>
+					<label>OpenAI Key</label>
+				</div>
+			</div>
 
 			<!-- Submit Button -->
-			<button>Search</button>
+			<div class="center-align">
+				<button class="btn-large waves-effect waves-light" type="submit" name="action">Search</button>
+			</div>
+
+			<!-- <button>Search</button> -->
+
 		</form>
 
 		<div class="recent-searches"></div>
