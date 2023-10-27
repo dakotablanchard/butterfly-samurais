@@ -1,5 +1,5 @@
 
-body {
+.welcome-page {
     background-image: url(./css-images/welcome-page-background.jpeg);
     background-size: cover;
 }
