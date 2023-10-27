@@ -8,6 +8,12 @@ const searchForm = document.getElementById("search-form");
 const activityBox = document.getElementById("activity-search-box");
 const locationBox = document.getElementById("places-search-box");
 
+// Datepicker popup from Materialize
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+  });
+
 //Setup search location box with google api
 function initPlacesAutocomplete() {
 	const placesAutocompleteBox = new google.maps.places.Autocomplete(
