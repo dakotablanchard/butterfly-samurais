@@ -104,9 +104,14 @@ function searchSubmission(event) {
 	openAiCall(prompt)
 		//when we get a response
 		.then((response) => {
-			let uuid = create_UUID();
-			localStorage.setItem(uuid, JSON.stringify(response));
-			location.replace("./results.html" + "?uuid=" + uuid);
+			if (response == "invalid") {
+				alert("Invalid Input");
+				location.reload();
+			} else {
+				let uuid = create_UUID();
+				localStorage.setItem(uuid, JSON.stringify(response));
+				location.replace("./results.html" + "?uuid=" + uuid);
+			}
 		})
 		//if error
 		.catch((error) => {
