@@ -13,7 +13,7 @@ h1 {
 }
 
 @media (max-width: 1137px) {
-    body {
+    .welcome-page {
         background-size: 1550px;
     }
 }
