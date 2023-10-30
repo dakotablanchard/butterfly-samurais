@@ -44,19 +44,18 @@
 					<option value="shopping for souvenir">...shop for gifts</option>
 				</select>
 			</div>
-
+			
 			<!-- Input for location -->
 			<div class="input-field col s4">
-				<input class="white-text" id="places-search-box" type="text" required>
-				<label>Enter a location...</label>
+				<input type="text" class="white-text" id="places-search-box" required>
 			</div>
 		</div>
-
+		
 		<!-- Datepicker Input -->
 		<div class="row">
 			<div class="input-field offset-s2 col s8">
-				<input class="datepicker" id="datepicker" required>
-				<label>Choose a date</label>
+				<input type="text" class="datepicker white-text" id="datepicker" required>
+				<label for="datepicker">Choose a date</label>
 			</div>
 		</div>
 
@@ -81,9 +80,9 @@
 
 	<pre id="test-response"></pre>
 	<!-- Import Google Places API -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script async
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script src="./assets/js/script.js"></script>
 </body>
 
