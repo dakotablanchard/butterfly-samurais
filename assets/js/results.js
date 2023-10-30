@@ -1,34 +1,46 @@
-function init() {
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const uuid = urlParams.get("uuid");
-	const response = JSON.parse(localStorage.getItem(uuid));
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const uuid = urlParams.get("uuid");
+const response = JSON.parse(localStorage.getItem(uuid));
 
+const activityWrapper = document.getElementById("activity-wrapper");
+
+function init() {
 	console.log(response);
+	displayResponse();
+}
+
+function displayResponse(response) {
+	for (activity of response) {
+		createEventCard(activity);
+	}
 }
 
 function createEventCard(eventObj) {
 	let header = eventObj.heading;
 	let description = eventObj.description;
 
-  let card = 
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/sample-1.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+	const colDiv = document.createElement("div");
+	colDiv.className = "col s12 m7";
+
+	const cardDiv = document.createElement("div");
+	cardDiv.className = "card";
+
+	const cardTitleSpan = document.createElement("span");
+	cardTitleSpan.className = "card-title";
+	cardTitleSpan.textContent = header;
+
+	const cardContentDiv = document.createElement("div");
+	cardContentDiv.className = "card-content";
+
+	const paragraph = document.createElement("p");
+	paragraph.textContent = description;
+
+	cardImageDiv.appendChild(cardTitleSpan);
+	cardContentDiv.appendChild(paragraph);
+	cardDiv.appendChild(cardContentDiv);
+	colDiv.appendChild(cardDiv);
+	activityWrapper.appendChild(colDiv);
 }
 
 init();
