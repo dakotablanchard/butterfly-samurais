@@ -1,7 +1,8 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const uuid = urlParams.get("uuid");
-const response = JSON.parse(localStorage.getItem(uuid));
+const jsonResponse = JSON.parse(localStorage.getItem(uuid));
+const response = JSON.parse(jsonResponse);
 
 const activityWrapper = document.getElementById("activity-wrapper");
 
@@ -10,8 +11,9 @@ function init() {
 	displayResponse();
 }
 
-function displayResponse(response) {
+function displayResponse() {
 	for (activity of response) {
+		console.log(activity);
 		createEventCard(activity);
 	}
 }
@@ -25,21 +27,21 @@ function createEventCard(eventObj) {
 
 	const cardDiv = document.createElement("div");
 	cardDiv.className = "card";
+	colDiv.appendChild(cardDiv);
 
 	const cardTitleSpan = document.createElement("span");
 	cardTitleSpan.className = "card-title";
 	cardTitleSpan.textContent = header;
+	cardDiv.appendChild(cardTitleSpan);
 
 	const cardContentDiv = document.createElement("div");
 	cardContentDiv.className = "card-content";
+	cardDiv.appendChild(cardContentDiv);
 
 	const paragraph = document.createElement("p");
 	paragraph.textContent = description;
-
-	cardImageDiv.appendChild(cardTitleSpan);
 	cardContentDiv.appendChild(paragraph);
-	cardDiv.appendChild(cardContentDiv);
-	colDiv.appendChild(cardDiv);
+
 	activityWrapper.appendChild(colDiv);
 }
 
