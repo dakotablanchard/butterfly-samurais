@@ -73,6 +73,19 @@ function openAiCall(prompt) {
 		});
 }
 
+function create_UUID() {
+	var dt = new Date().getTime();
+	var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+		/[xy]/g,
+		function (c) {
+			var r = (dt + Math.random() * 16) % 16 | 0;
+			dt = Math.floor(dt / 16);
+			return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
+		}
+	);
+	return uuid;
+}
+
 //on submit form
 function searchSubmission(event) {
 	//stop default form submission
@@ -91,8 +104,9 @@ function searchSubmission(event) {
 	openAiCall(prompt)
 		//when we get a response
 		.then((response) => {
-			//set the "test" p on index to the response
-			document.getElementById("test-response").textContent = response;
+			let uuid = create_UUID();
+			localStorage.setItem(uuid, JSON.stringify(response));
+			location.replace("./results.html" + "?uuid=" + uuid);
 		})
 		//if error
 		.catch((error) => {
