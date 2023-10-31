@@ -95,11 +95,17 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 
+<<<<<<< HEAD
 	let input = {
 		activity: activityBox.value,
 		location: locationBox.value,
 	};
 
+=======
+	displayIndexHTML.style.display = "none";
+	displayLoad.style.display = "block";
+	
+>>>>>>> bae6d4fe87d04cf1387bfa7a72f1dfc1c1205f5d
 	//get the input for what they want to do
 	let prompt = `Write me a travel itinerary for ${input.activity} in ${input.location}. Ensure to respond as you were instructed.`;
 
