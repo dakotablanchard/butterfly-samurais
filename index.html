@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./assets/css/normalize.css" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+		<title>Automated Trip Planner</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="./assets/css/normalize.css" />
-	<link rel="stylesheet" href="./assets/css/style.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<title>Automated Trip Planner</title>
-</head>
+	<body class="welcome-page">
+		<div wholePage>
+			<h1 class="white-text">Automated Trip Planner</h1>
+			<form id="search-form">
+				<!-- Input for what they want to do -->
+				<!-- Wrapped in div with location input -->
+				<div class="row">
+					<div class="input-field offset-s2 col s4">
+						<input
+							class="white-text"
+							id="activity-search-box"
+							type="text"
+							required />
+						<label for="activity">I want to...</label>
+					</div>
 
-<body class="welcome-page">
-	<div wholePage>
-		<h1 class="white-text">Automated Trip Planner</h1>
-		<form id="search-form">
-
-			<!-- Input for what they want to do -->
-			<!-- Wrapped in div with location input -->
-			<div class="row">
-				<div class="input-field offset-s2 col s4">
-					<input class="white-text" id="activity-search-box" type="text" required>
-					<label for="activity">I want to...</label>
+					<!-- Input for location -->
+					<div class="input-field col s4">
+						<input
+							type="text"
+							class="white-text"
+							id="places-search-box"
+							required />
+					</div>
 				</div>
 
-				<!-- Input for location -->
-				<div class="input-field col s4">
-					<input type="text" class="white-text" id="places-search-box" required>
+				<!-- Datepicker Input -->
+				<div class="row">
+					<div class="input-field offset-s2 col s8">
+						<input
+							type="text"
+							class="datepicker white-text"
+							id="datepicker"
+							required />
+						<label for="datepicker">Choose a date</label>
+					</div>
 				</div>
-			</div>
 
-			<!-- Datepicker Input -->
-			<div class="row">
-				<div class="input-field offset-s2 col s8">
-					<input type="text" class="datepicker white-text" id="datepicker" required>
-					<label for="datepicker">Choose a date</label>
+				<!-- Input for OpenAI API key, (move to modal in future) -->
+				<div class="row">
+					<div class="input-field offset-s2 col s8">
+						<input
+							class="white-text"
+							id="openai-key-box"
+							type="text"
+							required />
+						<label>OpenAI Key</label>
+					</div>
 				</div>
-			</div>
 
-			<!-- Input for OpenAI API key, (move to modal in future) -->
-			<div class="row">
-				<div class="input-field offset-s2 col s8">
-					<input class="white-text" id="openai-key-box" type="text" required>
-					<label>OpenAI Key</label>
+				<!-- Submit Button -->
+				<div class="center-align">
+					<button
+						class="btn-large waves-effect waves-light"
+						type="submit"
+						name="action">
+						Search
+					</button>
 				</div>
-			</div>
 
-			<!-- Submit Button -->
-			<div class="center-align">
-				<button class="btn-large waves-effect waves-light" type="submit" name="action">Search</button>
-			</div>
+				<!-- <button>Search</button> -->
+			</form>
 
-			<!-- <button>Search</button> -->
+			<div id="recent-searches"></div>
+		</div>
 
-		</form>
+		<div id="loadingGraphic"></div>
 
-		<div class="recent-searches"></div>
-
-		<pre id="test-response"></pre>
-	</div>
-
-	<div id="loadingGraphic"></div>
-
-	<!-- Import Google Places API -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script async
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
-	<script src="./assets/js/script.js"></script>
-	<script src="./assets/js/weather.js"></script>
-</body>
-
+		<!-- Import Google Places API -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script
+			async
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7YqsCek4o9us4xubExNXEwjgizrzlueE&libraries=places&callback=initPlacesAutocomplete"></script>
+		<script src="./assets/js/script.js"></script>
+		<script src="./assets/js/weather.js"></script>
+	</body>
 </html>
