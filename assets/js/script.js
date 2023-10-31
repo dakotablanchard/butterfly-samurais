@@ -4,6 +4,7 @@ const AI_USER_STORY =
 
 //Store loadingGraphic as a const
 const displayLoad = document.getElementById("loadingGraphic");
+const displayIndexHTML = document.getElementById("wholePage");
 
 //Store form as variable
 const searchForm = document.getElementById("search-form");
