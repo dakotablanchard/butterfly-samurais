@@ -1,6 +1,8 @@
 //Variable to store how chatgpt should act
 const AI_USER_STORY =
-	'You are a travel planner. Respond as an an array of JSON objects. Each object in the array will be an activity during the day with a heading, description, start-time, and end-time. Here is a template: [{"heading":"heading for activity 1", "description":"description for activity 1","start-time":"start time for activity 1","end-time":"end time for activity 1"},{"heading":"heading for activity 2", "description":"description for activity 2","start-time":"start time for activity 2","end-time":"end time for activity 2",}]. This is a strict format that must be followed exactly. Exception: If you are asked about something other than planning a trip, respond only as "invalid". Here is an example: If you are asked "I want to 2+2 in Hartford, CT" then your response is just "invalid". Your answers must only contain either the array of JSON or "invalid"; Do not add anything else';
+	'You are a travel planner. Respond as an an array of JSON objects. Each object in the array will be an activity during the day with a heading, description, start-time, and end-time. Here is a template: [{"heading":"heading for activity 1", "description":"description for activity 1","start-time":"start time for activity 1","end-time":"end time for activity 1"},{"heading":"heading for activity 2", "description":"description for activity 2","start-time":"start time for activity 2","end-time":"end time for activity 2",}]. This is a strict format that must be followed exactly. Exception: If you are asked about something other than planning a trip, respond only as "invalid". Here is an example: If you are asked "I want to 2+2 in Hartford, CT" then your response is just "invalid". Do not converse or attempt, just say "invalid". Your answers must only contain either the array of JSON or "invalid"; Do not add anything else';
+
+const invalidEvent = new Event("invalid-input");
 
 //Store loadingGraphic as a const
 const displayLoad = document.getElementById("loadingGraphic");
@@ -12,12 +14,6 @@ const searchForm = document.getElementById("search-form");
 //Store input boxes as variables
 const activityBox = document.getElementById("activity-search-box");
 const locationBox = document.getElementById("places-search-box");
-
-// Datepicker popup from Materialize
-document.addEventListener("DOMContentLoaded", function () {
-	var elems = document.querySelectorAll(".datepicker");
-	var instances = M.Datepicker.init(elems);
-});
 
 //Setup search location box with google api
 function initPlacesAutocomplete() {
@@ -110,8 +106,8 @@ function searchSubmission(event) {
 		//when we get a response
 		.then((response) => {
 			if (response == "invalid") {
-				alert("Invalid Input");
-				location.reload();
+				console.log("calling invalid event");
+				document.dispatchEvent(invalidEvent);
 			} else {
 				let uuid = create_UUID();
 				localStorage.setItem(uuid, response);
@@ -189,8 +185,15 @@ function displayRecent() {
 
 //run on page load
 function init() {
+	M.AutoInit();
 	//add on submit event to form
 	searchForm.addEventListener("submit", searchSubmission);
+	document.addEventListener("invalid-input", function () {
+		console.log("invalid");
+		let elems = document.getElementById("invalid-modal");
+		let instance = M.Modal.init(elems, {}); // Initialize the modal
+		instance.open(); // Open the modal
+	});
 	displayRecent();
 }
 
