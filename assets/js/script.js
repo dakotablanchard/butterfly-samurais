@@ -4,6 +4,7 @@ const AI_USER_STORY =
 
 //Store loadingGraphic as a const
 const displayLoad = document.getElementById("loadingGraphic");
+const displayIndexHTML = document.getElementById("wholePage");
 
 //Store form as variable
 const searchForm = document.getElementById("search-form");
@@ -93,6 +94,11 @@ function create_UUID() {
 function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
+
+	// Display the loading graphic and dim background
+	displayIndexHTML.style.display = "none";
+	displayLoad.style.display = "block";
+
 	searchForm.addEventListener("submit", function () {
 		// Display the loading graphic and dim background
 		displayLoad.style.display = "block";
