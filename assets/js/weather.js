@@ -15,7 +15,7 @@ function getWeather(event) {
     
     // console.log(locationValue)
     var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + locationBox2.value + "&appid=b3b885146dce3d4c2a9d8e921432d8fb"
-
+    console.log(weatherURL)
     fetch(weatherURL)
         .then(function (response) {
             response.json();
