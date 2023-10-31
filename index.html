@@ -11,74 +11,55 @@
 </head>
 
 <body class="welcome-page">
-	<h1 class="white-text">Automated Trip Planner</h1>
-	<form id="search-form">
+	<div wholePage>
+		<h1 class="white-text">Automated Trip Planner</h1>
+		<form id="search-form">
 
-		<!-- Input for what they want to do -->
-		<!-- Wrapped in div with location input -->
-		<!-- "Write me a travel itinerary for ...(ACTIVITY)... in the ...(LOCATION)... area for ...(NUMBER OF DAYS)..." -->
-		<div class="row">
-			<div class="input-field offset-s2 col s4">
-				<input class="white-text" id="activity-search-box" type="text" required>
+			<!-- Input for what they want to do -->
+			<!-- Wrapped in div with location input -->
+			<!-- "Write me a travel itinerary for ...(ACTIVITY)... in the ...(LOCATION)... area for ...(NUMBER OF DAYS)..." -->
+			<div class="row">
+				<div class="input-field offset-s2 col s4">
+					<input class="white-text" id="activity-search-box" type="text" required>
 
-				<label for="activity">I want to...</label>
-				<select name="activity" id="activity">
-					<option value="riding off-road bike trails">...go biking</option>
-					<option value="going horseback riding">...ride horses</option>
-					<option value="going swimming">...go for a swim</option>
-					<option value="finding the best food">...taste the local food</option>
-					<option value="going sight-seeing">...see the area</option>
-					<option value="bar hopping">...go out for drinks</option>
-					<option value="seeing local history">...see some history</option>
-					<option value="going for a scenic walk">...take an easy walk</option>
-					<option value="seeing the night life">...see the night life</option>
-					<option value="going out dancing">...go dancing</option>
-					<option value="going out clubbing">...go clubbing</option>
-					<option value="going out on a boat">...spend some time on the water</option>
-					<option value="going fishing">...go fishing</option>
-					<option value="going on a hunter trip">...hunt game</option>
-					<option value="explore">...just take a look around</option>
-					<option value="driving nice roads">...go for a drive</option>
-					<option value="going to see museums">...see classic artwork</option>
-					<option value="doing some trail hiking">...get lost in the woods</option>
-					<option value="shopping for souvenir">...shop for gifts</option>
-				</select>
-			</div>
-			
-			<!-- Input for location -->
-			<div class="input-field col s4">
-				<input type="text" class="white-text" id="places-search-box" required>
-			</div>
-		</div>
-		
-		<!-- Datepicker Input -->
-		<div class="row">
-			<div class="input-field offset-s2 col s8">
-				<input type="text" class="datepicker white-text" id="datepicker" required>
-				<label for="datepicker">Choose a date</label>
-			</div>
-		</div>
+					<!-- Input for location -->
+					<div class="input-field col s4">
+						<input type="text" class="white-text" id="places-search-box" required>
+					</div>
+				</div>
 
-		<!-- Input for OpenAI API key, (move to modal in future) -->
-		<div class="row">
-			<div class="input-field offset-s2 col s8">
-				<input class="white-text" id="openai-key-box" type="text" required>
-				<label>OpenAI Key</label>
-			</div>
-		</div>
+				<!-- Datepicker Input -->
+				<div class="row">
+					<div class="input-field offset-s2 col s8">
+						<input type="text" class="datepicker white-text" id="datepicker" required>
+						<label for="datepicker">Choose a date</label>
+					</div>
+				</div>
 
-		<!-- Submit Button -->
-		<div class="center-align">
-			<button class="btn-large waves-effect waves-light" type="submit" name="action">Search</button>
-		</div>
+				<!-- Input for OpenAI API key, (move to modal in future) -->
+				<div class="row">
+					<div class="input-field offset-s2 col s8">
+						<input class="white-text" id="openai-key-box" type="text" required>
+						<label>OpenAI Key</label>
+					</div>
+				</div>
 
-		<!-- <button>Search</button> -->
+				<!-- Submit Button -->
+				<div class="center-align">
+					<button class="btn-large waves-effect waves-light" type="submit" name="action">Search</button>
+				</div>
 
-	</form>
+				<!-- <button>Search</button> -->
 
-	<div class="recent-searches"></div>
+		</form>
 
-	<pre id="test-response"></pre>
+		<div class="recent-searches"></div>
+
+		<pre id="test-response"></pre>
+	</div>
+
+	<div id="loadingGraphic"></div>
+
 	<!-- Import Google Places API -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script async
