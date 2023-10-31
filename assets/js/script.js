@@ -128,7 +128,7 @@ function searchSubmission(event) {
 //run on page load
 function init() {
 	//add on submit event to form
-	// searchForm.addEventListener("submit", searchSubmission);
+	searchForm.addEventListener("submit", searchSubmission);
 }
 
 //run the on page load function
