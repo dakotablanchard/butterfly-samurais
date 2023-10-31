@@ -94,12 +94,11 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 	searchForm.addEventListener("submit", function () {
-	
 		// Display the loading graphic and dim background
 		displayLoad.style.display = "block";
 		wholePage.style.display = "none";
 	});
-	
+
 	//get the input for what they want to do
 	let prompt =
 		"Write me a travel itinerary for " +
@@ -120,7 +119,7 @@ function searchSubmission(event) {
 			} else {
 				let uuid = create_UUID();
 				localStorage.setItem(uuid, JSON.stringify(response));
-				location.replace("./results.html" + "?uuid=" + uuid);
+				location.assign("./results.html" + "?uuid=" + uuid);
 			}
 		})
 		//if error
