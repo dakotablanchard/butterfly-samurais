@@ -126,5 +126,21 @@ function init() {
 	// searchForm.addEventListener("submit", searchSubmission);
 }
 
+
+// Get references to the input field, button, and loading div
+var inputField = document.getElementById("inputField");
+var submitButton = document.getElementById("submitButton");
+var displayLoad = document.getElementById("loading");
+
+// Add an event listener to the submit button
+searchForm.addEventListener("submit", function () {
+	// Get the input value
+	var userInput = inputField.value;
+
+	// Display the loading graphic and dim background
+	displayLoad.style.display = "block";
+	wholePage.style.display = "none";
+});
+
 //run the on page load function
 init();
