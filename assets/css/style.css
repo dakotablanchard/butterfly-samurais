@@ -17,3 +17,8 @@ h1 {
         background-size: 1550px;
     }
 }
+
+#loadingGraphic {
+    display: none;
+    /* ADD LOADING GRAPHIC HERE */
+}
