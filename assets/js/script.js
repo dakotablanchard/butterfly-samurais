@@ -95,16 +95,6 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 
-	// Display the loading graphic and dim background
-	displayIndexHTML.style.display = "none";
-	displayLoad.style.display = "block";
-
-	searchForm.addEventListener("submit", function () {
-		// Display the loading graphic and dim background
-		displayLoad.style.display = "block";
-		wholePage.style.display = "none";
-	});
-
 	//get the input for what they want to do
 	let prompt =
 		"Write me a travel itinerary for " +
