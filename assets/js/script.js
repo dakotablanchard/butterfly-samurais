@@ -2,6 +2,9 @@
 const AI_USER_STORY =
 	'You are a travel planner. Respond as an an array of JSON objects. Each object in the array will be an activity during the day with a heading, description, start-time, and end-time. Here is a template: [{"heading":"heading for activity 1", "description":"description for activity 1","start-time":"start time for activity 1","end-time":"end time for activity 1"},{"heading":"heading for activity 2", "description":"description for activity 2","start-time":"start time for activity 2","end-time":"end time for activity 2",}]. This is a strict format that must be followed exactly. Exception: If you are asked about something other than planning a trip, respond only as "invalid". Here is an example: If you are asked "I want to 2+2 in Hartford, CT" then your response is just "invalid". Your answers must only contain either the array of JSON or "invalid"; Do not add anything else';
 
+//Store loadingGraphic as a const
+const displayLoad = document.getElementById("loadingGraphic");
+
 //Store form as variable
 const searchForm = document.getElementById("search-form");
 
@@ -90,6 +93,13 @@ function create_UUID() {
 function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
+	searchForm.addEventListener("submit", function () {
+	
+		// Display the loading graphic and dim background
+		displayLoad.style.display = "block";
+		wholePage.style.display = "none";
+	});
+	
 	//get the input for what they want to do
 	let prompt =
 		"Write me a travel itinerary for " +
@@ -125,22 +135,6 @@ function init() {
 	//add on submit event to form
 	searchForm.addEventListener("submit", searchSubmission);
 }
-
-
-// Get references to the input field, button, and loading div
-var inputField = document.getElementById("inputField");
-var submitButton = document.getElementById("submitButton");
-var displayLoad = document.getElementById("loading");
-
-// Add an event listener to the submit button
-searchForm.addEventListener("submit", function () {
-	// Get the input value
-	var userInput = inputField.value;
-
-	// Display the loading graphic and dim background
-	displayLoad.style.display = "block";
-	wholePage.style.display = "none";
-});
 
 //run the on page load function
 init();
