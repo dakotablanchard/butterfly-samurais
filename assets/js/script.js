@@ -95,17 +95,14 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 
-	displayIndexHTML.style.display = "none";
-	displayLoad.style.display = "block";
-	
+	let input = {
+		activity: activityBox.value,
+		location: locationBox.value,
+	};
+
 	//get the input for what they want to do
-	let prompt =
-		"Write me a travel itinerary for " +
-		activityBox.value +
-		" in " +
-		locationBox.value +
-		". Ensure to respond as you were instructed.";
-	//empty inputs
+	let prompt = `Write me a travel itinerary for ${input.activity} in ${input.location}. Ensure to respond as you were instructed.`;
+
 	activityBox.value = "";
 	locationBox.value = "";
 	//call function and wait for a response
@@ -117,7 +114,21 @@ function searchSubmission(event) {
 				location.reload();
 			} else {
 				let uuid = create_UUID();
-				localStorage.setItem(uuid, JSON.stringify(response));
+				localStorage.setItem(uuid, response);
+				let recentSearches = localStorage.getItem("recent-searches");
+				if (recentSearches) {
+					let recentSearchesArr = JSON.parse(recentSearches);
+					recentSearchesArr.push({input: input, uuid: uuid});
+					localStorage.setItem(
+						"recent-searches",
+						JSON.stringify(recentSearchesArr)
+					);
+				} else {
+					localStorage.setItem(
+						"recent-searches",
+						JSON.stringify([{input: input, uuid: uuid}])
+					);
+				}
 				location.assign("./results.html" + "?uuid=" + uuid);
 			}
 		})
@@ -128,10 +139,59 @@ function searchSubmission(event) {
 		});
 }
 
+function displayRecent() {
+	const recentSearchDiv = document.getElementById("recent-searches");
+
+	let recentSearches = localStorage.getItem("recent-searches");
+	if (recentSearches) {
+		let recentSearchesArr = JSON.parse(recentSearches);
+		let recentThree = recentSearchesArr.slice(-3);
+
+		for (search of recentThree) {
+			console.log(search);
+
+			const rowDiv = document.createElement("div");
+			rowDiv.className = "row";
+			recentSearchDiv.appendChild(rowDiv);
+
+			const colDiv = document.createElement("div");
+			colDiv.className = "col s12 m6";
+			rowDiv.appendChild(colDiv);
+
+			const cardDiv = document.createElement("div");
+			cardDiv.className = "card blue-grey darken-1";
+			colDiv.appendChild(cardDiv);
+
+			const cardContentDiv = document.createElement("div");
+			cardContentDiv.className = "card-content white-text";
+			cardDiv.appendChild(cardContentDiv);
+
+			const titleSpan = document.createElement("span");
+			titleSpan.className = "card-title";
+			titleSpan.textContent = search.input.activity;
+			cardContentDiv.appendChild(titleSpan);
+
+			const paragraph = document.createElement("p");
+			paragraph.textContent = `in ${search.input.location}.`;
+			cardContentDiv.appendChild(paragraph);
+
+			const cardActionDiv = document.createElement("div");
+			cardActionDiv.className = "card-action";
+			cardDiv.appendChild(cardActionDiv);
+
+			const actionLink = document.createElement("a");
+			actionLink.href = "./results.html" + "?uuid=" + search.uuid;
+			actionLink.textContent = "Review Trip";
+			cardActionDiv.appendChild(actionLink);
+		}
+	}
+}
+
 //run on page load
 function init() {
 	//add on submit event to form
 	searchForm.addEventListener("submit", searchSubmission);
+	displayRecent();
 }
 
 //run the on page load function

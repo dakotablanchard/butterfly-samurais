@@ -1,7 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const uuid = urlParams.get("uuid");
-const jsonResponse = JSON.parse(localStorage.getItem(uuid));
+const jsonResponse = localStorage.getItem(uuid);
 const response = JSON.parse(jsonResponse);
 
 const activityWrapper = document.getElementById("activity-wrapper");
