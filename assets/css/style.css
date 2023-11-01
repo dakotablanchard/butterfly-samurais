@@ -14,7 +14,13 @@ input:-webkit-autofill:active{
     background-size: cover;
 }
 
+.results-page {
+    background-image: url(./css-images/daniela-cuevas-t7YycgAoVSw-unsplash.jpg);
+    background-size: cover;
+}
+
 h1 {
+    margin: 0;
     text-align: center;
 }
 
@@ -25,6 +31,16 @@ h1 {
 @media (max-width: 1137px) {
     .welcome-page {
         background-size: 1550px;
+    }
+
+    .results-page {
+        background-size: 1550px;
+    }
+}
+
+@media (max-width: 467px) {
+    h1 {
+        font-size: 40px;
     }
 }
 
