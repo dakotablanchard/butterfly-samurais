@@ -3,17 +3,16 @@ const urlParams = new URLSearchParams(queryString);
 const uuid = urlParams.get("uuid");
 const jsonResponseArr = JSON.parse(localStorage.getItem(uuid));
 const response = JSON.parse(jsonResponseArr[0]);
+const auxData = jsonResponseArr[1];
 
 const activityWrapper = document.getElementById("activity-wrapper");
 
 function init() {
-	console.log(response);
 	displayResponse();
 }
 
 function displayResponse() {
 	for (activity of response) {
-		console.log(activity);
 		createEventCard(activity);
 	}
 }
