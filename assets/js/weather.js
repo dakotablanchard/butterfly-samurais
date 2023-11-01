@@ -23,7 +23,9 @@ function getWeather(event) {
 
     // Storing user input into variables
     var locationValue = locationBox2.value
-    var dateValue = datepicker2.value
+    // Storing date inputed by user and reformatting it to YYYY-MM-DD
+    // This will be used to compare to date coming in from the Open Weather API
+    var dateValue = dayjs(datepicker2.value).format("YYYY-MM-DD")
     
     // Building URL for API call
     var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + locationValue + "&appid=" + openweatherApiKey + "&units=imperial"
@@ -41,8 +43,13 @@ function getWeather(event) {
             var date3 = data.list[16].dt_txt.substring(0, data.list[16].dt_txt.lastIndexOf(" "))
             var date4 = data.list[24].dt_txt.substring(0, data.list[24].dt_txt.lastIndexOf(" "))
             var date5 = data.list[32].dt_txt.substring(0, data.list[32].dt_txt.lastIndexOf(" "))
-            console.log(date1, date2, date3, date4, date5, date)
+
+            checkDates(dateValue, date1, date2, date3, date4, date5)
         });
+}
+
+function checkDates(dateValue, date1, date2, date3, date4, date5) {
+    console.log(dateValue, date1)
 }
 
 //run on page load
