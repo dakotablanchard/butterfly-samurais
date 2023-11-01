@@ -155,7 +155,7 @@ function displayRecent() {
 			rowDiv.appendChild(colDiv);
 
 			const cardDiv = document.createElement("div");
-			cardDiv.className = "card blue-grey darken-1";
+			cardDiv.className = "card blue accent-2";
 			colDiv.appendChild(cardDiv);
 
 			const cardContentDiv = document.createElement("div");
