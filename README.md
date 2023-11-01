@@ -21,7 +21,7 @@ Provide a short description explaining the what, why, and how of your project. U
 - What problem does it solve?
 - What did you learn?
 
-## Technologies User
+## Technologies Used
 
 - HTML
 
@@ -38,8 +38,6 @@ Provide a short description explaining the what, why, and how of your project. U
 
   - [Google Places Autocomplete API](https://developers.google.com/maps/documentation/places/web-service/autocomplete)
   - [GPT OpenAI Chat completion API](https://platform.openai.com/docs/guides/gpt)
-
-This project entailed usage of a weather API, Google's Places Autocomplete API, as well as the chatGPT API.
 
 ## Installation
 
