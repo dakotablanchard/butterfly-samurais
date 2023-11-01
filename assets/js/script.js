@@ -194,7 +194,7 @@ function displayRecent() {
 function init() {
 	M.AutoInit();
 	//add on submit event to form
-	// searchForm.addEventListener("submit", searchSubmission);
+	searchForm.addEventListener("submit", searchSubmission);
 	document.addEventListener("invalid-input", function () {
 		console.log("invalid");
 		let elems = document.getElementById("invalid-modal");

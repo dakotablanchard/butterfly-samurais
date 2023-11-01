@@ -49,7 +49,20 @@ function getWeather(event) {
 }
 
 function checkDates(dateValue, date1, date2, date3, date4, date5) {
-    console.log(dateValue, date1)
+    if (dateValue === date1) {
+        //display weather for date1    
+    } if (dateValue === date2) {
+        //display weather for date2  
+    } if (dateValue === date3) {
+        //display weather for date3  
+    } if (dateValue === date4) {
+        //display weather for date4  
+    }  if (dateValue === date5) {
+        //display weather for date5  
+    } 
+    else {
+        //display "No weather data available"
+    } 
 }
 
 //run on page load
