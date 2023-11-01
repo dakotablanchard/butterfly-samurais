@@ -65,7 +65,6 @@ function openAiCall(prompt) {
 		.then((response) => response.json())
 		.then((data) => {
 			//location of the response message from chatgpt
-			console.log(data);
 			return data.choices[0].message.content;
 		})
 		.catch((error) => {
@@ -147,8 +146,6 @@ function displayRecent() {
 		let recentThree = recentSearchesArr.slice(-3);
 
 		for (search of recentThree) {
-			console.log(search);
-
 			const rowDiv = document.createElement("div");
 			rowDiv.className = "row container";
 			recentSearchDiv.appendChild(rowDiv);
@@ -196,7 +193,6 @@ function init() {
 	//add on submit event to form
 	searchForm.addEventListener("submit", searchSubmission);
 	document.addEventListener("invalid-input", function () {
-		console.log("invalid");
 		let elems = document.getElementById("invalid-modal");
 		let instance = M.Modal.init(elems, {}); // Initialize the modal
 		instance.open(); // Open the modal
