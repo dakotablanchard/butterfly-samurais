@@ -14,6 +14,7 @@ const searchForm = document.getElementById("search-form");
 //Store input boxes as variables
 const activityBox = document.getElementById("activity-search-box");
 const locationBox = document.getElementById("places-search-box");
+const dateBox = document.getElementById("datepicker");
 
 //Setup search location box with google api
 function initPlacesAutocomplete() {
@@ -94,6 +95,7 @@ function searchSubmission(event) {
 	let input = {
 		activity: activityBox.value,
 		location: locationBox.value,
+		date: dateBox.value,
 	};
 
 	//get the input for what they want to do
@@ -101,6 +103,7 @@ function searchSubmission(event) {
 
 	activityBox.value = "";
 	locationBox.value = "";
+	dateBox.value = "";
 	//call function and wait for a response
 	openAiCall(prompt)
 		//when we get a response
@@ -110,7 +113,7 @@ function searchSubmission(event) {
 				document.dispatchEvent(invalidEvent);
 			} else {
 				let uuid = create_UUID();
-				localStorage.setItem(uuid, response);
+				localStorage.setItem(uuid, JSON.stringify([response, input]));
 				let recentSearches = localStorage.getItem("recent-searches");
 				if (recentSearches) {
 					let recentSearchesArr = JSON.parse(recentSearches);
