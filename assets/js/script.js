@@ -147,16 +147,20 @@ function displayRecent() {
 			console.log(search);
 
 			const rowDiv = document.createElement("div");
-			rowDiv.className = "row";
+			rowDiv.className = "row container";
 			recentSearchDiv.appendChild(rowDiv);
 
 			const colDiv = document.createElement("div");
-			colDiv.className = "col s12 m6";
+			colDiv.className = "col s12";
 			rowDiv.appendChild(colDiv);
+
+			const cardContainerDiv = document.createElement("div");
+			cardContainerDiv.className = "container";
+			colDiv.appendChild(cardContainerDiv);
 
 			const cardDiv = document.createElement("div");
 			cardDiv.className = "card blue accent-2";
-			colDiv.appendChild(cardDiv);
+			cardContainerDiv.appendChild(cardDiv);
 
 			const cardContentDiv = document.createElement("div");
 			cardContentDiv.className = "card-content white-text";

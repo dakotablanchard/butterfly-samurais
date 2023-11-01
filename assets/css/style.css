@@ -1,62 +1,58 @@
 /* Removes browser autofill background color */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #ffffff;
-    transition: background-color 5000s ease-in-out 0s;
-    box-shadow: inset 0 0 20px 20px #23232329;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: #ffffff;
+	transition: background-color 5000s ease-in-out 0s;
+	box-shadow: inset 0 0 20px 20px #23232329;
 }
 
 .welcome-page {
-    background-image: url(./css-images/welcome-page-background.jpeg);
-    background-size: cover;
+	background-image: url(./css-images/welcome-page-background.jpeg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .results-page {
-    background-image: url(./css-images/daniela-cuevas-t7YycgAoVSw-unsplash.jpg);
-    background-size: cover;
+	background-image: url(./css-images/daniela-cuevas-t7YycgAoVSw-unsplash.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 h1 {
-    margin: 0;
-    text-align: center;
+	margin: 0;
+	text-align: center;
 }
 
 .datepicker {
-    cursor: pointer;
-}
-
-@media (max-width: 1137px) {
-    .welcome-page {
-        background-size: 1550px;
-    }
-
-    .results-page {
-        background-size: 1550px;
-    }
+	cursor: pointer;
 }
 
 @media (max-width: 467px) {
-    h1 {
-        font-size: 40px;
-    }
+	h1 {
+		font-size: 40px;
+	}
 }
 
 #loadingGraphic {
-    display: none;
-    border: 20px solid rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #3498db;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 2s linear infinite;
-    margin: 200px auto;
+	display: none;
+	border: 20px solid rgba(0, 0, 0, 0.1);
+	border-left: 4px solid #3498db;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	animation: spin 2s linear infinite;
+	margin: 200px auto;
 }
 
 /* CSS animation for the loading spinner */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
