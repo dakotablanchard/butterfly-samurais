@@ -20,6 +20,7 @@ input:-webkit-autofill:active{
 }
 
 h1 {
+    margin: 0;
     text-align: center;
 }
 
@@ -30,6 +31,16 @@ h1 {
 @media (max-width: 1137px) {
     .welcome-page {
         background-size: 1550px;
+    }
+
+    .results-page {
+        background-size: 1550px;
+    }
+}
+
+@media (max-width: 467px) {
+    h1 {
+        font-size: 40px;
     }
 }
 

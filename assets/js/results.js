@@ -23,7 +23,7 @@ function createEventCard(eventObj) {
 	let description = eventObj.description;
 
 	const colDiv = document.createElement("div");
-	colDiv.className = "col s7 offset-s3";
+	colDiv.className = "col s12";
 
 	const cardDiv = document.createElement("div");
 	cardDiv.className = "card";
