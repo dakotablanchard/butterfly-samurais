@@ -41,7 +41,7 @@ h1 {
 #loadingGraphic {
 	display: none;
 	border: 20px solid rgba(0, 0, 0, 0.1);
-	border-left: 4px solid #3498db;
+	border-left: 17px solid #26a69a;
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
