@@ -91,6 +91,9 @@ function searchSubmission(event) {
 	//stop default form submission
 	event.preventDefault();
 
+	displayIndexHTML.style.display = "none";
+	displayLoad.style.display = "block";
+
 	let input = {
 		activity: activityBox.value,
 		location: locationBox.value,
