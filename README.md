@@ -4,12 +4,14 @@
 
 This app is a traveler's companion app. It will help set an itinerary for a selected date, activity preference, and location based on input values given to it by the user. This helps the average traveler make a travel plan when visiting a potentially new area or exploring more around them. It is powered by ChatGPT to get ai recommendations.
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+The inspiration was a recent trip one of our group member's took to New York, where he found himself googling, "best things to do in nyc, best places to eat in nyc, etc." Harnessing the power of AI was a was to automate the solution to this problem.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+We learned about:
+
+- Sending headers and API keys to an api endpoint
+- A new css library (materialize)
+- Best practice git workflows with a group.
+- Improved our general coding ability through a challenging project.
 
 ## Technologies Used
 
@@ -29,19 +31,22 @@ Provide a short description explaining the what, why, and how of your project. U
   - [Google Places Autocomplete API](https://developers.google.com/maps/documentation/places/web-service/autocomplete)
   - [GPT OpenAI Chat completion API](https://platform.openai.com/docs/guides/gpt)
 
-## Installation
+## Setup
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+You will need to obtain an OpenAi Api Key. You can obtain one from signing up on the [OpenAi Website](https://openai.com/blog/openai-api). This is the only required setup step.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+You can access the website with this [link](https://dakotablanchard.github.io/trip-planner/).
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+This is the home screen, where you can input what you want to day, the destination, date, and your [OpenAi Key](https://openai.com/blog/openai-api):
+![Home Screen](./assets/imgs/home-screen.jpg)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Once you enter your info, you will go through a loading screen, and then be redirected to your itinerary for the day:
+![Results Screen](./assets/imgs/results-screen.jpg)
+
+You can click "Go Back Home" at the top left, to be redirected back to the home page. Here, you will see your three most recent searches as well. Clicking "Review Trip" on them will allow to you see the itinerary again:
+![Review Trip Section](./assets/imgs/recent-searches.jpg)
 
 ## Credits
 
