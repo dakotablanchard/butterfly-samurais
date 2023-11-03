@@ -193,7 +193,7 @@ function displayRecent() {
 function init() {
 	document.addEventListener("DOMContentLoaded", function () {
 		var elems = document.querySelectorAll(".datepicker");
-		var instances = M.Datepicker.init(elems, options);
+		var instances = M.Datepicker.init(elems, {});
 	});
 
 	//add on submit event to form
