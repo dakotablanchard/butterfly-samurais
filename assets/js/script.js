@@ -111,7 +111,6 @@ function searchSubmission(event) {
 		//when we get a response
 		.then((response) => {
 			if (response == "invalid") {
-				console.log("calling invalid event");
 				document.dispatchEvent(invalidEvent);
 			} else {
 				let uuid = create_UUID();
@@ -192,14 +191,32 @@ function displayRecent() {
 
 //run on page load
 function init() {
-	M.AutoInit();
+	document.addEventListener("DOMContentLoaded", function () {
+		var elems = document.querySelectorAll(".datepicker");
+		var instances = M.Datepicker.init(elems, options);
+	});
+
 	//add on submit event to form
 	searchForm.addEventListener("submit", searchSubmission);
-	document.addEventListener("invalid-input", function () {
-		let elems = document.getElementById("invalid-modal");
-		let instance = M.Modal.init(elems, {}); // Initialize the modal
-		instance.open(); // Open the modal
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var elems = document.querySelectorAll(".modal");
+		M.Modal.init(elems, {
+			onCloseEnd: function () {
+				location.reload();
+			},
+			onOpenEnd: function () {
+				console.log("invalid input.");
+			},
+		});
 	});
+
+	document.addEventListener("invalid-input", function () {
+		let elem = document.getElementById("invalid-modal");
+		var instance = M.Modal.getInstance(elem);
+		instance.open();
+	});
+
 	displayRecent();
 }
 
