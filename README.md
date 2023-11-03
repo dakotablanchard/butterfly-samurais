@@ -8,8 +8,8 @@ The inspiration was a recent trip one of our group member's took to New York, wh
 
 We learned about:
 
-- Sending headers and API keys to an api endpoint
-- A new css library (materialize)
+- Sending headers and API keys to an api endpoint.
+- A new css library (materialize).
 - Best practice git workflows with a group.
 - Improved our general coding ability through a challenging project.
 
