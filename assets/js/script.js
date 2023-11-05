@@ -16,6 +16,8 @@ const activityBox = document.getElementById("activity-search-box");
 const locationBox = document.getElementById("places-search-box");
 const dateBox = document.getElementById("datepicker");
 
+
+
 //Setup search location box with google api
 function initPlacesAutocomplete() {
 	const placesAutocompleteBox = new google.maps.places.Autocomplete(
@@ -119,7 +121,7 @@ function searchSubmission(event) {
 				let recentSearches = localStorage.getItem("recent-searches");
 				if (recentSearches) {
 					let recentSearchesArr = JSON.parse(recentSearches);
-					recentSearchesArr.push({input: input, uuid: uuid});
+					recentSearchesArr.push({ input: input, uuid: uuid });
 					localStorage.setItem(
 						"recent-searches",
 						JSON.stringify(recentSearchesArr)
@@ -127,7 +129,7 @@ function searchSubmission(event) {
 				} else {
 					localStorage.setItem(
 						"recent-searches",
-						JSON.stringify([{input: input, uuid: uuid}])
+						JSON.stringify([{ input: input, uuid: uuid }])
 					);
 				}
 				location.assign("./results.html" + "?uuid=" + uuid);
@@ -139,6 +141,7 @@ function searchSubmission(event) {
 			console.error("Error:", error);
 		});
 }
+
 
 function displayRecent() {
 	const recentSearchDiv = document.getElementById("recent-searches");
