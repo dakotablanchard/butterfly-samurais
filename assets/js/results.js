@@ -77,6 +77,7 @@ function createWeatherCard(weatherObj) {
 	let header = weatherObj.heading;
 	let description = weatherObj.description;
 	var locationWeather = auxData.location; // need to set this var using weatherAPI. not location...
+	// pull weather from location, set locationWeather variable to equal that...
 	console.log(locationWeather);
 
 	const colDiv = document.createElement("div");
